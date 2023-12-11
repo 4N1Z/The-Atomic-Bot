@@ -1,8 +1,7 @@
-import streamlit as st
 import cohere
+import streamlit as st
 
-import random
-import time
+
 co = cohere.Client(st.secrets["COHERE_API_KEY"])
 # Streamlit header
 st.set_page_config(page_title="Co:Chat - An LLM-powered chat bot")
@@ -72,7 +71,7 @@ def cohereReply(prompt):
         llm_response = co.chat(
             message=prompt,
             documents=docs,
-            model='command',
+            model='command-light',
             preamble_override=preamble_prompt,
             chat_history=st.session_state.messages,
         )
